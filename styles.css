@@ -313,6 +313,53 @@ main {
     line-height: 1;
 }
 
+.contenedor-cartasBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#mostrarCartasBtn {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #212529;
+    background: #212529;
+}
+
+#mostrarCartasBtn:hover{
+    background: #fff;
+    color: #212529
+}
+
+/* Ocultar el contenedor por defecto */
+.oculto {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Clase para mostrar el contenedor con animación */
+.mostrar {
+    display: flex !important;
+    opacity: 1;
+    
+}
+
+/* Asegúrate de que las cartas con .mostrar se animen */
+.contenedor-cartas.mostrar .carta {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
 .calendario .evento {
     background-color: var(--color-secondary);
     padding: 15px;
@@ -511,7 +558,7 @@ main {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
     .intro h1 {
         font-size: 1.5em;
     }
@@ -530,7 +577,7 @@ main {
 
     .slider {
         margin: auto;
-        width: 60vw;
+        width: 75vw;
     }
 
     .carta {
@@ -539,7 +586,7 @@ main {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .carta_comentario {
         width: calc(100% - 20px); 
     }
@@ -550,7 +597,7 @@ main {
 
     .slider {
         margin: auto;
-        width: 75vw;
+        width: 80vw;
     }
 
     .carta {
