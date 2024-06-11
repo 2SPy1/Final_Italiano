@@ -6,13 +6,19 @@
   --font-sans: 'Rubik', sans-serif;
   --font-serif: 'Cardo', serif;
   --color-primary: #333;
-  --color-secondary: #ccc;
+  --color-secondary: #2A9D8F;
   --color-accent: #666;
   --color-white: #fff;
 }
 
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
+    background-color: #666;
     font-family: var(--font-sans), Arial, sans-serif;
 }
 
@@ -52,6 +58,18 @@ header {
     background-color: var(--color-primary);
     border-radius: 5px;
     padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.menu a {
+    color: var(--color-white);
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.menu a:hover {
+    color: var(--color-secondary);
 }
 
 .menu.active {
@@ -59,7 +77,13 @@ header {
 }
 
 main {
-    padding: 20px;
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: whitesmoke;
 }
 
 .intro {
@@ -75,20 +99,250 @@ main {
 
 .intro p {
     font-size: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 20px;
 }
 
-.slider {
+.detalle {
+    padding: 20px;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.detalle h2 {
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+.detalle p {
+    line-height: 1.6;
+    color: var(--color-accent);
+}
+
+.detalle, .calendario {
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.detalle h2, .calendario h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+}
+
+.detalle p, .calendario p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.detalle img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.contenedor-cartas {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+    padding: 1rem;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: var(--font-sans);
+}
+
+/* Estilos de las cartas */
+.carta {  
+    display: flex;
+    align-items: flex-end;
+    height: 20vh;
+    width: 10vw;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    margin: 1em;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
+      0 2px 2px rgba(0,0,0,0.1), 
+      0 4px 4px rgba(0,0,0,0.1), 
+      0 8px 8px rgba(0,0,0,0.1),
+      0 16px 16px rgba(0,0,0,0.1);
+}
+
+/* Efecto de fondo de las cartas */
+.carta:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-size: 100% 100%;
+    background-position: center;
+    transition: transform calc(var(--d) * 1.5) var(--e);
+    pointer-events: none;
+}
+
+/* Efecto de degradado en las cartas */
+.carta:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0;
+    background-image: linear-gradient(
+        to bottom,
+        hsla(0, 0%, 0%, 0) 0%,
+        hsla(0, 0%, 0%, 0.009) 11.7%,
+        hsla(0, 0%, 0%, 0.034) 22.1%,
+        hsla(0, 0%, 0%, 0.072) 31.2%,
+        hsla(0, 0%, 0%, 0.123) 39.4%,
+        hsla(0, 0%, 0%, 0.182) 46.6%,
+        hsla(0, 0%, 0%, 0.249) 53.1%,
+        hsla(0, 0%, 0%, 0.320) 58.9%,
+        hsla(0, 0%, 0%, 0.394) 64.3%,
+        hsla(0, 0%, 0%, 0.468) 69.3%,
+        hsla(0, 0%, 0%, 0.540) 74.1%,
+        hsla(0, 0%, 0%, 0.607) 78.8%,
+        hsla(0, 0%, 0%, 0.668) 83.6%,
+        hsla(0, 0%, 0%, 0.721) 88.7%,
+        hsla(0, 0%, 0%, 0.762) 94.1%,
+        hsla(0, 0%, 0%, 0.790) 100%
+    );
+    transform: translateY(-50%);
+    transition: opacity 1.5s var(--e);
+}
+
+.carta:hover::after {
+    opacity: 1;
+}
+
+.carta:nth-child(1):before {
+    background-image: url(img_Contradas/aquila.jpg);
+}
+.carta:nth-child(2):before {
+    background-image: url(img_Contradas/bruco.jpg);
+}
+
+.carta:nth-child(3):before {
+    background-image: url(img_Contradas/chiocciola.jpg);
+}
+
+.carta:nth-child(4):before {
+    background-image: url(img_Contradas/civetta.jpg);
+}
+
+.carta:nth-child(5):before {
+    background-image: url(img_Contradas/drago.jpg);
+}
+
+.carta:nth-child(6):before {
+    background-image: url(img_Contradas/giraffa.jpg);
+}
+
+.carta:nth-child(7):before {
+    background-image: url(img_Contradas/istrice.jpg);
+}
+
+.carta:nth-child(8):before {
+    background-image: url(img_Contradas/leocorno.jpg);
+}
+
+.carta:nth-child(9):before {
+    background-image: url(img_Contradas/lupa.jpg);
+}
+
+.carta:nth-child(10):before {
+    background-image: url(img_Contradas/montone.jpg);
+}
+
+.carta:nth-child(11):before {
+    background-image: url(img_Contradas/nicchio.jpg);
+}
+
+.carta:nth-child(12):before {
+    background-image: url(img_Contradas/oca.jpg);
+}
+
+.carta:nth-child(13):before {
+    background-image: url(img_Contradas/onda.jpg);
+}
+
+.carta:nth-child(14):before {
+    background-image: url(img_Contradas/pantera.jpg);
+}
+
+.carta:nth-child(15):before {
+    background-image: url(img_Contradas/selva.jpg);
+}
+
+.carta:nth-child(16):before {
+    background-image: url(img_Contradas/tartuca.jpg);
+}
+
+.carta:nth-child(17):before {
+    background-image: url(img_Contradas/torre.jpg);
+}
+
+/* Estilos de contenido dentro de las cartas */
+.contenido {
+    display: flex;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: opacity 2s var(--e), transform 3s var(--e);
+    z-index: 1;
+}
+
+.carta:hover .contenido {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.titulo {
+    font-size: 1.5em !important;
+    color: var(--color-white) !important;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.calendario .evento {
+    background-color: var(--color-secondary);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.calendario .evento h3 {
+    margin: 0 0 10px 0;
+}
+
+.calendario .evento p {
+    margin: 0;
+}
+
+.slider {
+    background-color: whitesmoke;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 40px;
-    position: relative;
-    height: 400px;
+    margin: 1em auto 1em auto;
+    height: 40em;
+    width: 50vw;
 }
 
 .slider-container {
-    width: 100%;
+    width: 100vw;
+    height: 30em;
     max-width: 800px;
     position: relative;
 }
@@ -167,19 +421,41 @@ main {
     transform: translate(0, -100%);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .intro h1 {
-        font-size: 1.5em;
-    }
+.playBtnContenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
-    .intro p {
-        font-size: 0.9em;
-    }
+.playBtnFondo {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .intro button {
-        font-size: 0.9em;
-    }
+.playBtn {
+    width: 0;
+    height: 0;
+    margin-left: 0.4em;
+    border-left: 1.8vh solid transparent;
+    border-right: 1.8vh solid transparent;
+    border-bottom: 3.5vh solid #2d2d2a9a; /* Color del triángulo */
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transform: rotate(90deg);
+}
+
+.playBtn:hover {
+    border-bottom-color: #0057b3; /* Color del triángulo al pasar el cursor */
 }
 
 .comentarios {
@@ -190,6 +466,7 @@ main {
 }
 
 .carta_comentario {
+    background-color: whitesmoke;
     width: calc(25% - 20px);
     margin: 10px;
     padding: 20px;
@@ -214,15 +491,87 @@ main {
     margin-top: 5px;
 }
 
-/* Ajustes adicionales según sea necesario para pantallas más pequeñas */
+/* Media Queries */
+@media (max-width: 1030px) {
+    .slider-container {
+        height: 20em;
+    }
+
+    main {
+        width: 70vw;
+    }
+
+    .carta {
+        height: 8em;
+        width: 8em;
+    }
+
+    .titulo {
+        font-size: 1em !important;
+    }
+}
+
 @media (max-width: 768px) {
+    .intro h1 {
+        font-size: 1.5em;
+    }
+
+    .intro p {
+        font-size: 0.9em;
+    }
+
     .carta_comentario {
         width: calc(50% - 20px); 
+    }
+
+    main {
+        width: 80vw;
+    }
+
+    .slider {
+        margin: auto;
+        width: 60vw;
+    }
+
+    .carta {
+        height: 10em;
+        width: 10em;
     }
 }
 
 @media (max-width: 480px) {
     .carta_comentario {
         width: calc(100% - 20px); 
+    }
+
+    main {
+        width: 100vw;
+    }
+
+    .slider {
+        margin: auto;
+        width: 75vw;
+    }
+
+    .carta {
+        height: 5em;
+        width: 5em;
+    }
+}
+
+@media (max-width: 380px) {
+    .slider {
+        margin: auto;
+        width: 90vw;
+    }
+
+    .carta {
+        height: 4.5em;
+        width: 4.5em;
+        margin: 0;
+    }
+
+    .titulo {
+        font-size: 1em !important;
     }
 }
