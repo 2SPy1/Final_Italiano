@@ -11,10 +11,14 @@
   --color-white: #fff;
 }
 
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     background-color: #666;
-    font-family: var(--font-sans), Arial, sans-serif;
     font-family: var(--font-sans), Arial, sans-serif;
 }
 
@@ -23,8 +27,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
     background-color: var(--color-primary);
     color: var(--color-white);
 }
@@ -46,7 +48,6 @@ header {
     width: 100%;
     height: 4px;
     background-color: var(--color-white);
-    background-color: var(--color-white);
 }
 
 .menu {
@@ -54,7 +55,6 @@ header {
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: var(--color-primary);
     background-color: var(--color-primary);
     border-radius: 5px;
     padding: 10px;
@@ -86,7 +86,6 @@ main {
     background-color: whitesmoke;
 }
 
-
 .intro {
     text-align: center;
     margin-bottom: 40px;
@@ -96,14 +95,14 @@ main {
     font-size: 2em;
     margin-bottom: 10px;
     font-family: var(--font-serif);
-    font-family: var(--font-serif);
 }
 
 .intro p {
     font-size: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 20px;
 }
-
 
 .detalle {
     padding: 20px;
@@ -121,7 +120,6 @@ main {
     line-height: 1.6;
     color: var(--color-accent);
 }
-
 
 .detalle, .calendario {
     padding: 20px;
@@ -156,7 +154,7 @@ main {
     max-width: 1024px;
     margin: 0 auto;
     font-family: var(--font-sans);
-  }
+}
 
 /* Estilos de las cartas */
 .carta {  
@@ -174,7 +172,8 @@ main {
       0 8px 8px rgba(0,0,0,0.1),
       0 16px 16px rgba(0,0,0,0.1);
 }
-  /* Efecto de fondo de las cartas */
+
+/* Efecto de fondo de las cartas */
 .carta:before {
     content: '';
     position: absolute;
@@ -187,6 +186,7 @@ main {
     transition: transform calc(var(--d) * 1.5) var(--e);
     pointer-events: none;
 }
+
 /* Efecto de degradado en las cartas */
 .carta:after {
     content: '';
@@ -292,7 +292,6 @@ main {
     background-image: url(img_Contradas/torre.jpg);
 }
 
-
 /* Estilos de contenido dentro de las cartas */
 .contenido {
     display: flex;
@@ -308,7 +307,7 @@ main {
 }
 
 .titulo {
-    font-size: 2.5vh !important;
+    font-size: 1.5em !important;
     color: var(--color-white) !important;
     font-weight: bold;
     line-height: 1;
@@ -383,7 +382,6 @@ main {
     height: 100%;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-    aspect-ratio: 1 / 1;
     position: absolute;
     top: 0;
     left: 0;
@@ -431,15 +429,28 @@ main {
     height: 100%;
 }
 
+.playBtnFondo {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .playBtn {
     width: 0;
     height: 0;
+    margin-left: 0.4em;
     border-left: 1.8vh solid transparent;
     border-right: 1.8vh solid transparent;
     border-bottom: 3.5vh solid #2d2d2a9a; /* Color del triángulo */
     cursor: pointer;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     transform: rotate(90deg);
 }
 
@@ -460,14 +471,12 @@ main {
     margin: 10px;
     padding: 20px;
     border: 1px solid var(--color-secondary);
-    border: 1px solid var(--color-secondary);
     border-radius: 5px;
     text-align: center;
 }
 
 .comentario {
     font-style: italic;
-    font-family: var(--font-serif);
     font-family: var(--font-serif);
 }
 
@@ -479,12 +488,11 @@ main {
 .texto-breve {
     font-size: 0.8em;
     color: var(--color-accent);
-    color: var(--color-accent);
     margin-top: 5px;
 }
 
 /* Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 1030px) {
     .slider-container {
         height: 20em;
     }
@@ -493,9 +501,13 @@ main {
         width: 70vw;
     }
 
-    .card {
-        height: auto;
-        width: auto;
+    .carta {
+        height: 8em;
+        width: 8em;
+    }
+
+    .titulo {
+        font-size: 1em !important;
     }
 }
 
@@ -508,13 +520,8 @@ main {
         font-size: 0.9em;
     }
 
-    .intro button {
-        font-size: 0.9em;
-    }
     .carta_comentario {
-        .carta_comentario {
-            width: calc(50% - 20px); 
-        }
+        width: calc(50% - 20px); 
     }
 
     main {
@@ -525,21 +532,30 @@ main {
         margin: auto;
         width: 60vw;
     }
+
+    .carta {
+        height: 10em;
+        width: 10em;
+    }
 }
+
 @media (max-width: 480px) {
     .carta_comentario {
-        .carta_comentario {
-            width: calc(100% - 20px); 
-        }
+        width: calc(100% - 20px); 
     }
-    
+
     main {
         width: 100vw;
     }
 
     .slider {
         margin: auto;
-        width: 70vw;
+        width: 75vw;
+    }
+
+    .carta {
+        height: 5em;
+        width: 5em;
     }
 }
 
@@ -548,5 +564,14 @@ main {
         margin: auto;
         width: 90vw;
     }
-}
 
+    .carta {
+        height: 4.5em;
+        width: 4.5em;
+        margin: 0;
+    }
+
+    .titulo {
+        font-size: 1em !important;
+    }
+}
