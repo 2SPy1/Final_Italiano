@@ -13,6 +13,7 @@
 
 body {
     margin: 0;
+    background-color: #666;
     font-family: var(--font-sans), Arial, sans-serif;
     font-family: var(--font-sans), Arial, sans-serif;
 }
@@ -76,8 +77,15 @@ header {
 }
 
 main {
-    padding: 20px;
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: whitesmoke;
 }
+
 
 .intro {
     text-align: center;
@@ -155,11 +163,11 @@ main {
     display: flex;
     align-items: flex-end;
     height: 20vh;
-    width: 20vh;
+    width: 10vw;
     position: relative;
     overflow: hidden;
     padding: 1rem;
-    margin: 1vh;
+    margin: 1em;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
       0 2px 2px rgba(0,0,0,0.1), 
       0 4px 4px rgba(0,0,0,0.1), 
@@ -322,17 +330,20 @@ main {
 }
 
 .slider {
+    background-color: whitesmoke;
+    padding: 1em;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 40px;
-    position: relative;
-    height: 400px;
-    height: 400px;
+    margin: 1em auto 1em auto;
+    height: 40em;
+    width: 50vw;
 }
 
 .slider-container {
-    width: 100%;
+    width: 100vw;
+    height: 30em;
     max-width: 800px;
     position: relative;
 }
@@ -444,6 +455,7 @@ main {
 }
 
 .carta_comentario {
+    background-color: whitesmoke;
     width: calc(25% - 20px);
     margin: 10px;
     padding: 20px;
@@ -472,6 +484,21 @@ main {
 }
 
 /* Media Queries */
+@media (max-width: 1024px) {
+    .slider-container {
+        height: 20em;
+    }
+
+    main {
+        width: 70vw;
+    }
+
+    .card {
+        height: auto;
+        width: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .intro h1 {
         font-size: 1.5em;
@@ -484,20 +511,42 @@ main {
     .intro button {
         font-size: 0.9em;
     }
-}
+    .carta_comentario {
+        .carta_comentario {
+            width: calc(50% - 20px); 
+        }
+    }
 
-@media (max-width: 768px) {
-    .carta_comentario {
-    .carta_comentario {
-        width: calc(50% - 20px); 
+    main {
+        width: 80vw;
+    }
+
+    .slider {
+        margin: auto;
+        width: 60vw;
     }
 }
-
 @media (max-width: 480px) {
     .carta_comentario {
-    .carta_comentario {
-        width: calc(100% - 20px); 
+        .carta_comentario {
+            width: calc(100% - 20px); 
+        }
+    }
+    
+    main {
+        width: 100vw;
+    }
+
+    .slider {
+        margin: auto;
+        width: 70vw;
     }
 }
+
+@media (max-width: 380px) {
+    .slider {
+        margin: auto;
+        width: 90vw;
+    }
 }
-}
+
