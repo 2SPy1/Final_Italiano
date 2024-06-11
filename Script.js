@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.getElementById('mostrarCartasBtn').addEventListener('click', function() {
+    var contenedorCartas = document.querySelector('.contenedor-cartas');
+    contenedorCartas.classList.toggle('mostrar');
+    contenedorCartas.classList.toggle('oculto');
+});
+
 // Funcionalidad del slider
 let currentIndex = 0;
     const sliderTrack = document.querySelector('.slider-track');
