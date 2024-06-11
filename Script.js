@@ -2,14 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuHamburguesa = document.getElementById('menu-hamburguesa');
     const menu = document.getElementById('menu');
 
-    if (menuHamburguesa && menu) {
-        menuHamburguesa.addEventListener('click', function() {
-            menu.classList.toggle('active');
-        });
-    }
+    menuHamburguesa.addEventListener('click', function() {
+        menu.classList.toggle('active');
+    });
+});
 
-    // Funcionalidad del slider
-    let currentIndex = 0;
+// Funcionalidad del slider
+let currentIndex = 0;
     const sliderTrack = document.querySelector('.slider-track');
     const sliderGroups = document.querySelectorAll('.slider-group');
     const totalGroups = sliderGroups.length;
@@ -33,6 +32,5 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = nextIndex;
         }
 
-        setInterval(showNextSlide, 5000); // Intervalo de cambio 5s
-    }
-});
+    setInterval(showNextSlide, 5000); // Intervalo de cambio 5s
+}
