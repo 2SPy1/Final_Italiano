@@ -274,35 +274,35 @@ main {
 }
 
 .carta:nth-child(10):before {
-    background-image: url(img_Contradas/montone.jpg);
-}
-
-.carta:nth-child(11):before {
     background-image: url(img_Contradas/nicchio.jpg);
 }
 
-.carta:nth-child(12):before {
+.carta:nth-child(11):before {
     background-image: url(img_Contradas/oca.jpg);
 }
 
-.carta:nth-child(13):before {
+.carta:nth-child(12):before {
     background-image: url(img_Contradas/onda.jpg);
 }
 
-.carta:nth-child(14):before {
+.carta:nth-child(13):before {
     background-image: url(img_Contradas/pantera.jpg);
 }
 
-.carta:nth-child(15):before {
+.carta:nth-child(14):before {
     background-image: url(img_Contradas/selva.jpg);
 }
 
-.carta:nth-child(16):before {
+.carta:nth-child(15):before {
     background-image: url(img_Contradas/tartuca.jpg);
 }
 
-.carta:nth-child(17):before {
+.carta:nth-child(16):before {
     background-image: url(img_Contradas/torre.jpg);
+}
+
+.carta:nth-child(17):before {
+    background-image: url(img_Contradas/montone.jpg);
 }
 
 /* Estilos de contenido dentro de las cartas */
